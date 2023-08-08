@@ -4,7 +4,10 @@
 /.stignore
 /.stfolder
 /.stversions
-/lua/config/
 /lua/lsp/
 /lua/plugins/
-/lua/plugins.lua
+
+# Files from old version
+/config/*
+/after/plugin/keymaps.lua
+/config/local.vim
