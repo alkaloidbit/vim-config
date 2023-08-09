@@ -18,3 +18,7 @@ keymap("n", ",,", "<C-^>", default_opts)
 
 keymap("n", "msg", ":messages <CR>", default_opts)
 keymap("n", "msgg", ":messages clear<CR>", default_opts)
+
+keymap("n", ",d", "<cmd>lua require('telescope.builtin').find_files({cwd=vim.fn.expand('%:p:h')})<CR>", default_opts)
+
+keymap("n", ",fo", "<cmd>Telescope lsp_document_symbols<CR>", default_opts)

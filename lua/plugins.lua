@@ -1,7 +1,7 @@
 return {
-	{ import = 'rafi.plugins.extras.coding.copilot' },
+	-- { import = 'rafi.plugins.extras.coding.copilot' },
 	{ 'rafi/awesome-vim-colorschemes', enabled = false },
-	{ 'alkaloidbit/nord.nvim' },
+	{ 'shaunsingh/nord.nvim' },
 	{
 		'rafi/tabstrip.nvim',
 		opts = {
