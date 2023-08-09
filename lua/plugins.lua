@@ -17,4 +17,9 @@ return {
 		},
 		branch = "localchanges",
 	},
+	{ import = 'rafi.plugins.extras.coding.emmet' },
+	{ import = 'rafi.plugins.extras.editor.ufo' },
+	{ import = 'rafi.plugins.extras.editor.flybuf' },
+	{ import = 'rafi.plugins.extras.lsp.lightbulb' },
+	{ import = 'rafi.plugins.extras.ui.bufferline' },
 }
