@@ -1,17 +1,20 @@
 return {
 	-- { import = 'rafi.plugins.extras.coding.copilot' },
 	{ 'rafi/awesome-vim-colorschemes', enabled = false },
-	{ 'shaunsingh/nord.nvim' },
+	{ 'alkaloidbit/nord.nvim', branch = "localchanges" },
 	{
 		'rafi/tabstrip.nvim',
 		opts = {
 			colors = {
-				modified = { fg = '#434C5E', ctermfg = 2 },
+				modified = { fg = '#eceff4', ctermfg = 2 },
+
 			},
 			icons = {
-				modified = '',
+
+				modified = '●',
 				session = '',
 			},
 		},
+		branch = "localchanges",
 	},
 }
