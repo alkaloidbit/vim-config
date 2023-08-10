@@ -7,7 +7,7 @@ return {
 		'rafi/theme-loader.nvim',
 		lazy = false,
 		priority = 99,
-		opts = { initial_colorscheme = 'neohybrid' },
+		opts = { initial_colorscheme = 'nord' },
 	},
 
 	{ 'rafi/neo-hybrid.vim', priority = 100, lazy = false },
