@@ -22,5 +22,4 @@ return {
 	{ import = 'rafi.plugins.extras.editor.ufo' },
 	{ import = 'rafi.plugins.extras.editor.flybuf' },
 	{ import = 'rafi.plugins.extras.lsp.lightbulb' },
-	{ import = 'rafi.plugins.extras.ui.bufferline' },
 }

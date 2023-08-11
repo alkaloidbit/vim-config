@@ -5,7 +5,6 @@
 /.stfolder
 /.stversions
 /lua/lsp/
-/lua/plugins/
 
 # Files from old version
 /config/*
