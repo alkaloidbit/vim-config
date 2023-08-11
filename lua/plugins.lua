@@ -1,6 +1,7 @@
 return {
 	-- { import = 'rafi.plugins.extras.coding.copilot' },
 	{ 'rafi/awesome-vim-colorschemes', enabled = false },
+	{ 'nvim-lualine/lualine.nvim', enabled = false },
 	{ 'alkaloidbit/nord.nvim', branch = "localchanges" },
 	{
 		'rafi/tabstrip.nvim',
