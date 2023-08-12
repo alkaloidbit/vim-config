@@ -19,10 +19,12 @@ return {
 		branch = "localchanges",
 	},
 	{
-		'feline-nvim/feline.nvim', enabled = true
+		'feline-nvim/feline.nvim', enabled = false
 	},
 	{
-		'nvimdev/whiskyline.nvim', enabled = false
+		'nvimdev/whiskyline.nvim',
+		enabled = true,
+		dependencies = 'nvim-tree/nvim-web-devicons',
 	},
 	{
 		'rebelot/heirline.nvim',

@@ -1,3 +1,3 @@
 return {
-		-- require("whiskyline").setup()
+		require("whiskyline").setup()
 	}
