@@ -3,40 +3,45 @@ local present, feline = pcall(require, "feline")
 if not present then return end
 
 local theme = {
-  aqua = "#7AB0DF",
-  bg = "#1C212A",
-  blue = "#5FB0FC",
-  cyan = "#70C0BA",
-  darkred = "#FB7373",
-  fg = "#C7C7CA",
-  gray = "#222730",
-  green = "#79DCAA",
-  lime = "#54CED6",
-  orange = "#FFD064",
-  pink = "#D997C8",
-  purple = "#C397D8",
-  red = "#F87070",
+	glacier = "#81A1C1", -- nord9 in palette
+  bg = "#2E3440",
+	black = "#2E3440", -- nord0 in palette
+	blue = "#5E81AC", -- nord10 in palette
+	teal = "#8FBCBB", -- nord7 in palette
+	red = "#BF616A", -- nord11 in palette
+	fg = "#ECEFF4", -- nord6 in palette
+	white = "#ECEFF4", -- nord6 in palette
+	dark_gray = "#3B4252", -- nord1 in palette
+	gray = "#434C5E", -- nord2 in palette
+	light_gray = "#4C566A", -- nord3 in palette
+	light_gray_bright = "#616E88", -- out of palette
+	darkest_white = "#D8DEE9", -- nord4 in palette
+	darker_white = "#E5E9F0", -- nord5 in palette
+	green = "#A3BE8C", -- nord14 in palette
+	off_blue = "#88C0D0", -- nord8 in palette
+	orange = "#D08770", -- nord12 in palette
+	purple = "#B48EAD", -- nord15 in palette
   yellow = "#FFE59E"
 }
 
-vim.api.nvim_set_hl(0, "StatusLine", { bg = "#101317", fg = "#7AB0DF" })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "#2E3440", fg = "#81A1C1" })
 
 local mode_theme = {
-  ["NORMAL"] = theme.green,
-  ["OP"] = theme.cyan,
-  ["INSERT"] = theme.aqua,
-  ["VISUAL"] = theme.yellow,
-  ["LINES"] = theme.darkred,
+  ["NORMAL"] = theme.glacier,
+  ["OP"] = theme.teal,
+  ["INSERT"] = theme.fg,
+  ["VISUAL"] = theme.off_blue,
+  ["LINES"] = theme.red,
   ["BLOCK"] = theme.orange,
-  ["REPLACE"] = theme.purple,
-  ["V-REPLACE"] = theme.pink,
-  ["ENTER"] = theme.pink,
-  ["MORE"] = theme.pink,
-  ["SELECT"] = theme.darkred,
-  ["SHELL"] = theme.cyan,
-  ["TERM"] = theme.lime,
-  ["NONE"] = theme.gray,
-  ["COMMAND"] = theme.blue,
+  ["REPLACE"] = theme.yellow,
+  ["V-REPLACE"] = theme.purple,
+  ["ENTER"] = theme.purple,
+  ["MORE"] = theme.purple,
+  ["SELECT"] = theme.red,
+  ["SHELL"] = theme.teal,
+  ["TERM"] = theme.off_blue,
+  ["NONE"] = theme.dark_gray,
+  ["COMMAND"] = theme.teal,
 }
 
 local modes = setmetatable({
@@ -81,7 +86,7 @@ component.vim_mode = {
 component.git_branch = {
   provider = "git_branch",
   hl = {
-    fg = "fg",
+    fg = "light_gray_bright",
     bg = "bg",
     style = "bold",
   },
@@ -144,7 +149,7 @@ component.diagnostic_warnings = {
 component.diagnostic_hints = {
   provider = "diagnostic_hints",
   hl = {
-    fg = "aqua",
+    fg = "glacier",
   },
 }
 
@@ -158,7 +163,7 @@ component.lsp = {
       return ""
     end
 
-    local progress = vim.lsp.util.get_progress_messages()[1]
+    local progress = vim.lsp.status()[1]
     if vim.o.columns < 120 then
       return ""
     end
@@ -185,10 +190,10 @@ component.lsp = {
     return ""
   end,
   hl = function()
-    local progress = vim.lsp.util.get_progress_messages()[1]
+    local progress = vim.lsp.status()[1]
     return {
       fg = progress and "yellow" or "green",
-      bg = "gray",
+      bg = "bg",
       style = "bold",
     }
   end,
@@ -205,7 +210,7 @@ component.file_type = {
   },
   hl = {
     fg = "fg",
-    bg = "gray",
+    bg = "bg",
   },
   left_sep = "block",
   right_sep = "block",
@@ -234,7 +239,7 @@ component.scroll_bar = {
     local style
 
     if position <= 5 then
-      fg = "aqua"
+      fg = "glacier"
       style = "bold"
     elseif position >= 95 then
       fg = "red"
@@ -253,9 +258,7 @@ component.scroll_bar = {
   right_sep = "block",
 }
 
-local left = {}
-local middle = {}
-local right = {
+local left = {
   component.vim_mode,
   component.file_type,
   component.lsp,
@@ -263,6 +266,9 @@ local right = {
   component.git_add,
   component.git_delete,
   component.git_change,
+}
+local middle = {}
+local right = {
   component.separator,
   component.diagnostic_errors,
   component.diagnostic_warnings,
@@ -280,4 +286,6 @@ feline.setup({
   theme = theme,
   vi_mode_colors = mode_theme,
 })
+
+-- feline.winbar.setup()
 
