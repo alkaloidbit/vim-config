@@ -18,6 +18,17 @@ return {
 		},
 		branch = "localchanges",
 	},
+	{
+		'feline-nvim/feline.nvim', enabled = true
+	},
+	{
+		'nvimdev/whiskyline.nvim', enabled = false
+	},
+	{
+		'rebelot/heirline.nvim',
+		enabled = false,
+		module = false,
+	},
 	{ import = 'rafi.plugins.extras.coding.emmet' },
 	{ import = 'rafi.plugins.extras.editor.ufo' },
 	{ import = 'rafi.plugins.extras.editor.flybuf' },

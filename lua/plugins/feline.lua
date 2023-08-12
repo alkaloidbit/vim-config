@@ -1,0 +1,4 @@
+return {
+	require("feline").setup(),
+}
+
