@@ -215,26 +215,42 @@ component.file_type = {
   left_sep = "block",
   right_sep = "block",
 }
+component.line_percentage = {
+    provider = function ()
+      local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+      local lines = vim.api.nvim_buf_line_count(0)
+
+      if curr_line == 1 then
+          return ' TOP'
+      elseif curr_line == lines then
+          return ' BOT'
+      else
+          return string.format('%2d%%%%', math.ceil(curr_line / lines * 99))
+      end
+    end,
+    hl = {
+        style = 'bold',
+    },
+    left_sep = '  ',
+    right_sep = '',
+
+}
 
 component.scroll_bar = {
-  provider = function()
-    local chars = setmetatable({
-      " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",
-      " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",
-    }, { __index = function() return " " end })
-    local line_ratio = vim.api.nvim_win_get_cursor(0)[1] / vim.api.nvim_buf_line_count(0)
-    local position = math.floor(line_ratio * 100)
+  provider = function ()
+    local opts = { reverse = true }
+    local scroll_bar_blocks = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
+    local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+    local lines = vim.api.nvim_buf_line_count(0)
 
-    local icon = chars[math.floor(line_ratio * #chars)] .. position
-    if position <= 5 then
-      icon = " TOP"
-    elseif position >= 95 then
-      icon = " BOT"
+    if opts.reverse then
+        return string.rep(scroll_bar_blocks[8 - math.floor(curr_line / lines * 7)], 2)
+    else
+        return string.rep(scroll_bar_blocks[math.floor(curr_line / lines * 7) + 1], 2)
     end
-    return icon
   end,
   hl = function()
-    local position = math.floor(vim.api.nvim_win_get_cursor(0)[1] / vim.api.nvim_buf_line_count(0) * 100)
+   local position = math.floor(vim.api.nvim_win_get_cursor(0)[1] / vim.api.nvim_buf_line_count(0) * 100)
     local fg
     local style
 
@@ -274,6 +290,7 @@ local right = {
   component.diagnostic_warnings,
   component.diagnostic_info,
   component.diagnostic_hints,
+  component.line_percentage,
   component.scroll_bar,
 }
 
