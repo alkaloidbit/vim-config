@@ -10,4 +10,6 @@ vim.g.disable_background = false
 vim.g.nord_cursorline_transparent = false
 vim.g.nord_italic = false
 
+vim.wo.number = true
+vim.wo.relativenumber = true
 
