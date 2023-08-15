@@ -4,6 +4,16 @@ return {
 	{ "nvim-lualine/lualine.nvim", enabled = false },
 	{ "alkaloidbit/nord.nvim", branch = "localchanges" },
 	{
+		"RRethy/vim-illuminate",
+		opts = {
+			providers = {
+				'lsp',
+				'treesitter',
+				'regex',
+			},
+		},
+	},
+	{
 		"rafi/tabstrip.nvim",
 		opts = {
 			colors = {
@@ -30,9 +40,9 @@ return {
 		enabled = false,
 		module = false,
 	},
-	{ import = "rafi.plugins.extras.coding.autopairs" },
-	{ import = "rafi.plugins.extras.coding.cmp-git" },
-	{ import = "rafi.plugins.extras.coding.sandwich" },
+	-- { import = "rafi.plugins.extras.coding.autopairs" },
+	-- { import = "rafi.plugins.extras.coding.cmp-git" },
+	-- { import = "rafi.plugins.extras.coding.sandwich" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
 	{ import = "rafi.plugins.extras.diagnostics.proselint" },
 	{ import = "rafi.plugins.extras.diagnostics.write-good" },
@@ -46,11 +56,11 @@ return {
 	{ import = "rafi.plugins.extras.lsp.null-ls" },
 	{ import = "rafi.plugins.extras.lsp.yaml-companion" },
 	{ import = "rafi.plugins.extras.ui.barbecue" },
-	{ import = "rafi.plugins.extras.ui.cursorword" },
+	-- { import = "rafi.plugins.extras.ui.cursorword" },
 	{ import = "rafi.plugins.extras.ui.cybu" },
 	{ import = "rafi.plugins.extras.ui.deadcolumn" },
 	{ import = "rafi.plugins.extras.ui.goto-preview" },
-	{ import = "rafi.plugins.extras.ui.incline" },
+	-- { import = "rafi.plugins.extras.ui.incline" },
 	{ import = "rafi.plugins.extras.ui.minimap" },
-	{ import = "rafi.plugins.extras.ui.statuscol" },
+	-- { import = "rafi.plugins.extras.ui.statuscol" },
 }
