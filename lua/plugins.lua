@@ -1,5 +1,14 @@
 return {
-	-- { import = 'rafi.plugins.extras.coding.copilot' },
+	{ "junegunn/fzf", build = "./install --bin" },
+	{
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			-- calling `setup` is optional for customization
+			require("fzf-lua").setup({})
+		end,
+	}, -- { import = 'rafi.plugins.extras.coding.copilot' },
 	{ "rafi/awesome-vim-colorschemes", enabled = false },
 	{ "nvim-lualine/lualine.nvim", enabled = false },
 	{ "alkaloidbit/nord.nvim", branch = "localchanges" },
@@ -7,9 +16,9 @@ return {
 		"RRethy/vim-illuminate",
 		opts = {
 			providers = {
-				'lsp',
-				'treesitter',
-				'regex',
+				"lsp",
+				"treesitter",
+				"regex",
 			},
 		},
 	},
