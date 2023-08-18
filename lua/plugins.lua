@@ -8,7 +8,7 @@ return {
 			-- calling `setup` is optional for customization
 			require("fzf-lua").setup({})
 		end,
-	}, -- { import = 'rafi.plugins.extras.coding.copilot' },
+	},
 	{ "rafi/awesome-vim-colorschemes", enabled = false },
 	{ "nvim-lualine/lualine.nvim", enabled = false },
 	{ "alkaloidbit/nord.nvim", branch = "localchanges" },
@@ -39,19 +39,6 @@ return {
 	{
 		"feline-nvim/feline.nvim",
 	},
-	{
-		"nvimdev/whiskyline.nvim",
-		enabled = false,
-		dependencies = "nvim-tree/nvim-web-devicons",
-	},
-	{
-		"rebelot/heirline.nvim",
-		enabled = false,
-		module = false,
-	},
-	-- { import = "rafi.plugins.extras.coding.autopairs" },
-	-- { import = "rafi.plugins.extras.coding.cmp-git" },
-	-- { import = "rafi.plugins.extras.coding.sandwich" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
 	{ import = "rafi.plugins.extras.diagnostics.proselint" },
 	{ import = "rafi.plugins.extras.diagnostics.write-good" },
@@ -65,11 +52,8 @@ return {
 	{ import = "rafi.plugins.extras.lsp.null-ls" },
 	{ import = "rafi.plugins.extras.lsp.yaml-companion" },
 	{ import = "rafi.plugins.extras.ui.barbecue" },
-	-- { import = "rafi.plugins.extras.ui.cursorword" },
 	{ import = "rafi.plugins.extras.ui.cybu" },
 	{ import = "rafi.plugins.extras.ui.deadcolumn" },
 	{ import = "rafi.plugins.extras.ui.goto-preview" },
-	-- { import = "rafi.plugins.extras.ui.incline" },
 	{ import = "rafi.plugins.extras.ui.minimap" },
-	-- { import = "rafi.plugins.extras.ui.statuscol" },
 }
