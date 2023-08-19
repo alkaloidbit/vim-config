@@ -29,7 +29,20 @@ function M.find_buffers()
 end
 
 -- Find dotfiles
+-- dotbare ls-files --full-name --directory "${DOTBARE_TREE}" | awk -v home="${DOTBARE_TREE}/" "{print home \$0}"
 function M.find_dotfiles()
+	require("fzf-lua").fzf_exec(
+		'dotbare ls-files --full-name --directory "${DOTBARE_TREE}" | awk -v home=${DOTBARE_TREE}/ "{print home \\$0}"',
+		{
+			prompt = 'DotFiles >',
+			actions = {
+				["default"] = require("fzf-lua").actions.file_edit,
+			},
+			fn_transform = function(x)
+				return require'fzf-lua'.make_entry.file(x, {file_icons=true, color_icons=true})
+			end
+		}
+	)
 end
 
 return M

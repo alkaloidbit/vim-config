@@ -27,3 +27,6 @@ keymap("n", "<leader>qr", "<cmd>lua require('fr.telescope').reload()<CR>", defau
 keymap("n", "<leader>pf", "<cmd>lua require('fr.telescope').project_files()<CR>", default_opts)
 
 keymap("n", "<leader>ff", "<cmd>lua require('fr.finder').find_files()<CR>", default_opts)
+
+keymap("n", ";do", "<cmd>lua require('fr.finder').find_dotfiles()<CR>", default_opts)
+
