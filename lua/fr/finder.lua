@@ -38,9 +38,10 @@ function M.find_dotfiles()
 			actions = {
 				["default"] = require("fzf-lua").actions.file_edit,
 			},
+			previewer = "builtin",
 			fn_transform = function(x)
 				return require'fzf-lua'.make_entry.file(x, {file_icons=true, color_icons=true})
-			end
+			end,
 		}
 	)
 end
