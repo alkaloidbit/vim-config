@@ -57,4 +57,12 @@ M.project_files = function()
 	end
 end
 
+M.dotfiles = function()
+	local prompt_title = "~ DotFiles ~"
+	local opts = {
+		prompt_title = prompt_title,
+	}
+	require('telescope.builtin').find_files(opts)
+end
+
 return M

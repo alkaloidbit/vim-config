@@ -25,8 +25,10 @@ keymap("n", ",fo", "<cmd>Telescope lsp_document_symbols<CR>", default_opts)
 
 keymap("n", "<leader>qr", "<cmd>lua require('fr.telescope').reload()<CR>", default_opts)
 keymap("n", "<leader>pf", "<cmd>lua require('fr.telescope').project_files()<CR>", default_opts)
+keymap("n", "<leader>pp", "<cmd>lua require('fr.telescope').dotfiles()<CR>", default_opts)
 
 keymap("n", "<leader>ff", "<cmd>lua require('fr.finder').find_files()<CR>", default_opts)
 
 keymap("n", ";do", "<cmd>lua require('fr.finder').find_dotfiles()<CR>", default_opts)
+
 
