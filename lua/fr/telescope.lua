@@ -34,7 +34,7 @@ function M.reload()
 			return true
 		end
 	}
-require('telescope.builtin').find_files(opts)
+	require('telescope.builtin').find_files(opts)
 end
 
 -- We cache the results of "git rev-parse"
@@ -57,12 +57,14 @@ M.project_files = function()
 	end
 end
 
-M.dotfiles = function()
-	local prompt_title = "~ DotFiles ~"
-	local opts = {
-		prompt_title = prompt_title,
-	}
-	require('telescope.builtin').find_files(opts)
+
+M.dotfiles = function(opts)
+	local actions = require('telescope.actions')
+	local utils = require('telescope.utils')
+	local tree = os.getenv("DOTBARE_TREE")
+	-- results = utils.get_os_command_output({"dotbare", "ls-files", "--full-name",  "--directory " .. vim.fn.shellescape(tree)})
+	local results = utils.get_os_command_output({"dotbare", "ls-files", "--full-name",  "--directory ~/"})
+	P(results)
 end
 
 return M
