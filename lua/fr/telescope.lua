@@ -60,21 +60,18 @@ end
 M.dotfiles = function(opts)
 	local actions = require("telescope.actions")
 	local utils = require("telescope.utils")
+	local make_entry = require("telescope.make_entry")
 	local tree = os.getenv("DOTBARE_TREE")
-	opts = opts or {}
 
-	opts.entry_maker = function(line)
-		return {
-			value = line,
-			ordinal = line,
-			display = line,
-		}
-	end
+	opts = opts or {}
+	opts.cwd = tree
+
+  opts.entry_maker = vim.F.if_nil(opts.entry_maker, make_entry.gen_from_file(opts))
 
 	require("telescope.pickers").new(opts, {
 		prompt_title = "[ DotFiles ]",
 		finder = require("telescope.finders").new_table({
-			results = utils.get_os_command_output({ "dotbare", "ls-files", "--full-name" }, "~/"),
+			results = utils.get_os_command_output({ "dotbare", "ls-files", "--full-name" }, tree),
 			entry_maker = opts.entry_maker,
 		}),
 		sorter = require('telescope.sorters').get_fuzzy_file(),
