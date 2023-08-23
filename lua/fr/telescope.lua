@@ -5,7 +5,7 @@ function M.reload()
 	-- so this module convert the selected entry to
 	-- the module name: ju.colors
 	local function get_module_names(s)
-		local module_name;
+		local module_name
 
 		module_name = s:gsub("%.lua", "")
 		module_name = module_name:gsub("%/", ".")
@@ -32,9 +32,9 @@ function M.reload()
 			end)
 
 			return true
-		end
+		end,
 	}
-	require('telescope.builtin').find_files(opts)
+	require("telescope.builtin").find_files(opts)
 end
 
 -- We cache the results of "git rev-parse"
@@ -51,20 +51,36 @@ M.project_files = function()
 	end
 
 	if is_inside_work_tree[cwd] then
-		require('telescope.builtin').git_files(opts)
+		require("telescope.builtin").git_files(opts)
 	else
-		require('telescope.builtin').find_files(opts)
+		require("telescope.builtin").find_files(opts)
 	end
 end
 
-
 M.dotfiles = function(opts)
-	local actions = require('telescope.actions')
-	local utils = require('telescope.utils')
+	local actions = require("telescope.actions")
+	local utils = require("telescope.utils")
 	local tree = os.getenv("DOTBARE_TREE")
-	-- results = utils.get_os_command_output({"dotbare", "ls-files", "--full-name",  "--directory " .. vim.fn.shellescape(tree)})
-	local results = utils.get_os_command_output({"dotbare", "ls-files", "--full-name",  "--directory ~/"})
-	P(results)
+	opts = opts or {}
+
+	opts.entry_maker = function(line)
+		return {
+			value = line,
+			ordinal = line,
+			display = line,
+		}
+	end
+
+	require("telescope.pickers").new(opts, {
+		prompt_title = "[ DotFiles ]",
+		finder = require("telescope.finders").new_table({
+			results = utils.get_os_command_output({ "dotbare", "ls-files", "--full-name" }, "~/"),
+			entry_maker = opts.entry_maker,
+		}),
+		sorter = require('telescope.sorters').get_fuzzy_file(),
+		previewer = require('telescope.previewers.term_previewer').cat.new(opts),
+	})
+	:find()
 end
 
 return M
