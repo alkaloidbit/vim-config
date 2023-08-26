@@ -32,3 +32,4 @@ keymap("n", "<leader>ff", "<cmd>lua require('fr.finder').find_files()<CR>", defa
 keymap("n", ";do", "<cmd>lua require('fr.finder').find_dotfiles()<CR>", default_opts)
 
 
+keymap("n", ";sc", "<cmd>lua require('fr.cht').cht()<CR>", default_opts)
