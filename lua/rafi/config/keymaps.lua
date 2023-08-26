@@ -238,8 +238,8 @@ map('n', '<Leader>uw', function()
 end, { desc = 'Toggle Wrap' })
 
 -- Tabs: Many ways to navigate them
-map('n', '<A-j>', '<cmd>tabnext<CR>', { desc = 'Next Tab' })
-map('n', '<A-k>', '<cmd>tabprevious<CR>', { desc = 'Previous Tab' })
+map('n', '<A-k>', '<cmd>tabnext<CR>', { desc = 'Next Tab' })
+map('n', '<A-j>', '<cmd>tabprevious<CR>', { desc = 'Previous Tab' })
 map('n', '<A-[>', '<cmd>tabprevious<CR>', { desc = 'Previous Tab' })
 map('n', '<A-]>', '<cmd>tabnext<CR>', { desc = 'Next Tab' })
 map('n', '<C-Tab>', '<cmd>tabnext<CR>', { desc = 'Next Tab' })
