@@ -23,6 +23,12 @@ return {
 		},
 	},
 	{
+		'nvim-telescope/telescope.nvim',
+		keys = {
+			{ '<localleader>f', '<cmd>lua require(\'fr.telescope\').project_files()<CR>', { noremap = true, silent = true }},
+		}
+	},
+	{
 		"rafi/tabstrip.nvim",
 		opts = {
 			colors = {
@@ -34,11 +40,13 @@ return {
 				session = "",
 			},
 		},
+		enabled = false,
 		branch = "localchanges",
 	},
 	{
 		"feline-nvim/feline.nvim",
 	},
+	{ import = "rafi.plugins.extras.ui.bufferline" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
 	{ import = "rafi.plugins.extras.diagnostics.proselint" },
 	{ import = "rafi.plugins.extras.diagnostics.write-good" },

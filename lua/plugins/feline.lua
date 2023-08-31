@@ -185,6 +185,7 @@ component.file_type = {
 		name = "file_type",
 		opts = {
 			filetype_icon = true,
+			case = 'lowercase',
 		},
 	},
 	hl = {
@@ -259,7 +260,6 @@ local left = {
 	component.git_delete,
 	component.git_change,
 }
-local middle = {}
 local right = {
 	component.separator,
 	component.diagnostic_errors,
@@ -273,7 +273,7 @@ local right = {
 }
 
 local components = {
-	active = { left, middle, right },
+	active = { left, right },
 }
 
 return {
