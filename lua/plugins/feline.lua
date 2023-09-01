@@ -75,6 +75,18 @@ local modes = setmetatable({
 
 local component = {}
 
+component.empty = {
+	provider = function()
+		return ""
+	end,
+	hl = function()
+		return {
+			bg = "bg",
+		}
+	end,
+	left_sep = "",
+	right_sep = "",
+}
 component.vim_mode = {
 	provider = function()
 		return modes[vim.api.nvim_get_mode().mode]
@@ -176,7 +188,6 @@ component.lsp = {
 		}
 	end,
 	left_sep = "block",
-
 	right_sep = "block",
 }
 
@@ -185,7 +196,7 @@ component.file_type = {
 		name = "file_type",
 		opts = {
 			filetype_icon = true,
-			case = 'lowercase',
+			case = "lowercase",
 		},
 	},
 	hl = {
@@ -274,6 +285,7 @@ local right = {
 
 local components = {
 	active = { left, right },
+	inactive = { { component.empty }, { component.empty } },
 }
 
 return {

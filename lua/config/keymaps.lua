@@ -33,3 +33,5 @@ keymap("n", ";do", "<cmd>lua require('fr.finder').find_dotfiles()<CR>", default_
 
 
 keymap("n", ";sc", "<cmd>lua require('fr.cht').cht()<CR>", default_opts)
+
+keymap("n", "[c", "<cmd>lua require('treesitter-context').go_to_context()<CR>", default_opts)
