@@ -11,7 +11,10 @@ return {
 	},
 	{ "rafi/awesome-vim-colorschemes", enabled = false },
 	{ "nvim-lualine/lualine.nvim", enabled = false },
-	{ "alkaloidbit/nord.nvim", branch = "localchanges" },
+	{
+		url = "git@github.com:alkaloidbit/nord.nvim",
+		branch = "localchanges"
+	},
 	{
 		"RRethy/vim-illuminate",
 		opts = {

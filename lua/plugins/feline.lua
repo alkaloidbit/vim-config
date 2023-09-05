@@ -180,9 +180,8 @@ component.diagnostic_info = {
 component.lsp = {
 	provider = "lsp_client_names",
 	hl = function()
-		local progress = vim.lsp.status()[1]
 		return {
-			fg = progress and "yellow" or "green",
+			fg =  "green",
 			bg = "bg",
 			style = "bold",
 		}
@@ -226,6 +225,26 @@ component.line_percentage = {
 	right_sep = "",
 }
 
+component.file_info = {
+	provider = 'file_info',
+	hl = {
+		fg = "fg",
+		bg = "bg",
+		style = "bold",
+	},
+	left_sep = {' ', 'slant_left_2'},
+	right_sep = { 'circle', ' ' }
+}
+component.search_count = {
+	provider = 'search_count',
+	hl = {
+		fg = "fg",
+		bg = "bg",
+	},
+	left_sep = "",
+	right_sep = ""
+}
+
 component.scroll_bar = {
 	provider = function()
 		local opts = { reverse = true }
@@ -266,7 +285,8 @@ component.scroll_bar = {
 
 local left = {
 	component.vim_mode,
-	component.file_type,
+	component.file_info,
+	-- component.file_type,
 	component.git_add,
 	component.git_delete,
 	component.git_change,
@@ -277,6 +297,7 @@ local right = {
 	component.diagnostic_warnings,
 	component.diagnostic_info,
 	component.diagnostic_hints,
+	-- component.search_count,
 	component.lsp,
 	component.git_branch,
 	component.line_percentage,
