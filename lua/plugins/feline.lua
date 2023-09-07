@@ -114,6 +114,9 @@ component.git_branch = {
 	},
 	left_sep = "block",
 	right_sep = "",
+	enabled = function ()
+		return vim.api.nvim_win_get_width(0) > 80
+	end
 }
 
 component.git_add = {
@@ -190,6 +193,9 @@ component.lsp = {
 	end,
 	left_sep = "block",
 	right_sep = "block",
+	enabled = function ()
+		return vim.api.nvim_win_get_width(0) > 80
+	end
 }
 
 component.file_type = {
