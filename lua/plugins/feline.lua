@@ -1,5 +1,7 @@
 local present, feline = pcall(require, "feline")
 
+local fmt = string.format
+
 if not present then
 	return
 end
@@ -211,17 +213,36 @@ component.line_percentage = {
 		local lines = vim.api.nvim_buf_line_count(0)
 
 		if curr_line == 1 then
-			return " TOP"
+			return "󱔓 "
 		elseif curr_line == lines then
-			return " BOT"
+			return "󱂩 "
 		else
 			return string.format("%2d%%%%", math.ceil(curr_line / lines * 99))
 		end
 	end,
-	hl = {
-		style = "bold",
-	},
-	left_sep = "  ",
+	hl = function ()
+		local position = math.floor(vim.api.nvim_win_get_cursor(0)[1] / vim.api.nvim_buf_line_count(0) * 100)
+		local fg
+		local style
+
+		if position <= 5 then
+			fg = "glacier"
+			style = "bold"
+		elseif position >= 95 then
+			fg = "red"
+			style = "bold"
+		else
+			fg = "purple"
+			style = nil
+		end
+		return {
+			fg = fg,
+			style = style,
+			bg = "bg",
+		}
+	end,
+	left_sep = " "
+	,
 	right_sep = "",
 }
 
@@ -232,9 +253,22 @@ component.file_info = {
 		bg = "bg",
 		style = "bold",
 	},
-	left_sep = {' ', 'slant_left_2'},
-	right_sep = { 'circle', ' ' }
+	left_sep = " ",
+	right_sep = "",
 }
+
+component.current_position = {
+	provider = function ()
+		return fmt( " %3d:%-2d", unpack(vim.api.nvim_win_get_cursor(0)))
+	end,
+	hl = {
+		fg = "fg",
+		bg = "bg",
+	},
+	left_sep = "",
+	right_sep = ""
+}
+
 component.search_count = {
 	provider = 'search_count',
 	hl = {
@@ -279,8 +313,8 @@ component.scroll_bar = {
 			bg = "bg",
 		}
 	end,
-	left_sep = "block",
-	right_sep = "block",
+	left_sep = "|",
+	right_sep = "",
 }
 
 local left = {
@@ -300,8 +334,9 @@ local right = {
 	-- component.search_count,
 	component.lsp,
 	component.git_branch,
+	-- component.current_position,
 	component.line_percentage,
-	component.scroll_bar,
+	component.scroll_bar
 }
 
 local components = {
