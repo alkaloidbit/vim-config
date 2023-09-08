@@ -198,6 +198,27 @@ component.lsp = {
 	end
 }
 
+component.lazy_status = {
+	provider = function ()
+		local res = require("lazy.status").has_updates()
+		if res then
+			return tostring(require("lazy.status").updates())
+		else
+			return ""
+		end
+	end,
+	hl = function()
+		return {
+			fg =  "orange",
+			bg = "bg",
+			style = "bold",
+		}
+	end,
+	left_sep = "block",
+	right_sep = "block",
+
+}
+
 component.file_type = {
 	provider = {
 		name = "file_type",
@@ -338,6 +359,7 @@ local right = {
 	component.diagnostic_info,
 	component.diagnostic_hints,
 	-- component.search_count,
+	component.lazy_status,
 	component.lsp,
 	component.git_branch,
 	-- component.current_position,
