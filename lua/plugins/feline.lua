@@ -253,13 +253,13 @@ component.line_percentage = {
 		local style
 
 		if position <= 5 then
-			fg = "glacier"
+			fg = "green"
 			style = "bold"
 		elseif position >= 95 then
-			fg = "red"
+			fg = "orange"
 			style = "bold"
 		else
-			fg = "purple"
+			fg = "yellow"
 			style = nil
 		end
 		return {
