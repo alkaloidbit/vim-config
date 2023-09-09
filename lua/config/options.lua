@@ -12,6 +12,6 @@ vim.g.nord_cursorline_transparent = false
 vim.g.nord_uniform_diff_background = true
 vim.g.nord_bold = true
 
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.wo.number = false
+vim.wo.relativenumber = false
 
