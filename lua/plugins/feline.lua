@@ -364,7 +364,7 @@ local right = {
 	component.git_branch,
 	-- component.current_position,
 	component.line_percentage,
-	component.scroll_bar
+	-- component.scroll_bar
 }
 
 local components = {
@@ -377,5 +377,15 @@ return {
 		components = components,
 		theme = theme,
 		vi_mode_colors = mode_theme,
+		disable = {
+			filetypes = {"neo-tree"},
+			-- buftypes = {"^terminal$"},
+			bufnames = {},
+		},
+		force_inactive = {
+			filetypes = {"^neo-tree"},
+			buftypes = {"^terminal$"},
+			bufnames = {},
+		}
 	}),
 }
