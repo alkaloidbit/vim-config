@@ -25,7 +25,7 @@ local theme = {
 	off_blue = "#88C0D0", -- nord8 in palette
 	orange = "#D08770", -- nord12 in palette
 	purple = "#B48EAD", -- nord15 in palette
-	yellow = "#FFE59E",
+	yellow = "#EBCB8B",
 }
 
 vim.api.nvim_set_hl(0, "StatusLine", { bg = "#2E3440", fg = "#81A1C1" })
