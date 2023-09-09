@@ -377,13 +377,8 @@ return {
 		components = components,
 		theme = theme,
 		vi_mode_colors = mode_theme,
-		disable = {
-			filetypes = {"neo-tree"},
-			-- buftypes = {"^terminal$"},
-			bufnames = {},
-		},
 		force_inactive = {
-			filetypes = {"^neo-tree"},
+			filetypes = {"^neo%-tree$"},
 			buftypes = {"^terminal$"},
 			bufnames = {},
 		}
