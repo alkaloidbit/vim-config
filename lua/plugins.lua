@@ -78,6 +78,12 @@ return {
 	{
 		"feline-nvim/feline.nvim",
 	},
+	{
+		"folke/twilight.nvim",
+		opts = {
+			--  Configuration comes here
+		}
+	},
 	{ import = "rafi.plugins.extras.ui.bufferline" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
 	{ import = "rafi.plugins.extras.diagnostics.proselint" },
