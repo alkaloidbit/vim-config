@@ -114,9 +114,9 @@ component.git_branch = {
 	},
 	left_sep = "block",
 	right_sep = "",
-	enabled = function ()
+	enabled = function()
 		return vim.api.nvim_win_get_width(0) > 80
-	end
+	end,
 }
 
 component.git_add = {
@@ -182,24 +182,61 @@ component.diagnostic_info = {
 	provider = "diagnostic_info",
 }
 
+component.lsp_status = {
+	provider = function()
+		if not rawget(vim, "lsp") then
+			return ""
+		end
+
+		local progress = vim.lsp.util.get_progress_messages()[1]
+		if vim.o.columns < 120 then
+			return ""
+		end
+
+		local clients = vim.lsp.get_clients({ bufnr = 0 })
+		if #clients ~= 0 then
+			if progress then
+				local spinners = {
+					"◜ ",
+					"◠ ",
+					"◝ ",
+					"◞ ",
+					"◡ ",
+					"◟ ",
+				}
+				local ms = vim.loop.hrtime() / 1000000
+				local frame = math.floor(ms / 120) % #spinners
+				local content = string.format("%%<%s", spinners[frame + 1])
+				return content or ""
+			else
+				return "לּ LSP"
+			end
+		end
+		return ""
+	end,
+	hl = {},
+	left_sep = "",
+	right_sep = "",
+}
+
 component.lsp = {
 	provider = "lsp_client_names",
 	hl = function()
 		return {
-			fg =  "green",
+			fg = "green",
 			bg = "bg",
 			style = "bold",
 		}
 	end,
 	left_sep = "block",
 	right_sep = "block",
-	enabled = function ()
+	enabled = function()
 		return vim.api.nvim_win_get_width(0) > 80
-	end
+	end,
 }
 
 component.lazy_status = {
-	provider = function ()
+	provider = function()
 		local res = require("lazy.status").has_updates()
 		if res then
 			return tostring(require("lazy.status").updates())
@@ -209,14 +246,13 @@ component.lazy_status = {
 	end,
 	hl = function()
 		return {
-			fg =  "orange",
+			fg = "orange",
 			bg = "bg",
 			style = "bold",
 		}
 	end,
 	left_sep = "block",
 	right_sep = "block",
-
 }
 
 component.file_type = {
@@ -247,7 +283,7 @@ component.line_percentage = {
 			return string.format("%2d%%%%", math.ceil(curr_line / lines * 99))
 		end
 	end,
-	hl = function ()
+	hl = function()
 		local position = math.floor(vim.api.nvim_win_get_cursor(0)[1] / vim.api.nvim_buf_line_count(0) * 100)
 		local fg
 		local style
@@ -268,13 +304,12 @@ component.line_percentage = {
 			bg = "bg",
 		}
 	end,
-	left_sep = " "
-	,
+	left_sep = " ",
 	right_sep = "",
 }
 
 component.file_info = {
-	provider = 'file_info',
+	provider = "file_info",
 	hl = {
 		fg = "fg",
 		bg = "bg",
@@ -285,25 +320,25 @@ component.file_info = {
 }
 
 component.current_position = {
-	provider = function ()
-		return fmt( " %3d:%-2d", unpack(vim.api.nvim_win_get_cursor(0)))
+	provider = function()
+		return fmt(" %3d:%-2d", unpack(vim.api.nvim_win_get_cursor(0)))
 	end,
 	hl = {
 		fg = "fg",
 		bg = "bg",
 	},
 	left_sep = "",
-	right_sep = ""
+	right_sep = "",
 }
 
 component.search_count = {
-	provider = 'search_count',
+	provider = "search_count",
 	hl = {
 		fg = "fg",
 		bg = "bg",
 	},
 	left_sep = "",
-	right_sep = ""
+	right_sep = "",
 }
 
 component.scroll_bar = {
@@ -359,6 +394,7 @@ local right = {
 	component.diagnostic_info,
 	component.diagnostic_hints,
 	-- component.search_count,
+	-- component.lsp_status,
 	component.lazy_status,
 	component.lsp,
 	component.git_branch,
@@ -378,9 +414,9 @@ return {
 		theme = theme,
 		vi_mode_colors = mode_theme,
 		force_inactive = {
-			filetypes = {"^neo%-tree$"},
-			buftypes = {"^terminal$"},
+			filetypes = { "^neo%-tree$" },
+			buftypes = { "^terminal$" },
 			bufnames = {},
-		}
+		},
 	}),
 }
