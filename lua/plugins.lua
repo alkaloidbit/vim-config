@@ -85,6 +85,7 @@ return {
 		}
 	},
 	{ import = "rafi.plugins.extras.ui.bufferline" },
+	{ import = "rafi.plugins.extras.ui.barbecue" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
 	{ import = "rafi.plugins.extras.diagnostics.proselint" },
 	{ import = "rafi.plugins.extras.diagnostics.write-good" },

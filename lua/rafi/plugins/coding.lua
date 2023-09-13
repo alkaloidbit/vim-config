@@ -17,6 +17,7 @@ return {
 			'hrsh7th/cmp-emoji',
 			{ 'saadparwaiz1/cmp_luasnip', dependencies = 'L3MON4D3/LuaSnip' },
 			'andersevenrud/cmp-tmux',
+			'hrsh7th/cmp-cmdline'
 		},
 		opts = function()
 			local cmp = require('cmp')
