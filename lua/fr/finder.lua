@@ -1,6 +1,6 @@
 local M = {}
 
--- Find a file either using git files or search the filesystem.
+-- Fzf-lua: Find a file either using git files or search the filesystem.
 function M.find_files()
 	local fzf = require("fzf-lua")
 	if vim.fn.system("git rev-parse --is-inside-work-tree") == true then
@@ -10,7 +10,7 @@ function M.find_files()
 	end
 end
 
--- Custom find buffers function.
+-- Custom find buffers function. (vim.ui)
 function M.find_buffers()
 	local results = {}
 	local buffers = vim.api.nvim_list_bufs()
@@ -28,7 +28,7 @@ function M.find_buffers()
 	end)
 end
 
--- Find dotfiles
+-- Fzf-lua Find dotfiles
 -- dotbare ls-files --full-name --directory "${DOTBARE_TREE}" | awk -v home="${DOTBARE_TREE}/" "{print home \$0}"
 function M.find_dotfiles()
 	require("fzf-lua").fzf_exec(

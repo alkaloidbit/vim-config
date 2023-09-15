@@ -14,7 +14,7 @@ function M.reload()
 		return module_name
 	end
 
-	local prompt_title = "~ neovim modules ~"
+	local prompt_title = "Neovim Modules"
 
 	local path = "~/.config/nvim/lua"
 
@@ -69,7 +69,7 @@ M.dotfiles = function(opts)
   opts.entry_maker = vim.F.if_nil(opts.entry_maker, make_entry.gen_from_file(opts))
 
 	require("telescope.pickers").new(opts, {
-		prompt_title = "[ DotFiles ]",
+		prompt_title = " DotFiles ",
 		finder = require("telescope.finders").new_table({
 			results = utils.get_os_command_output({ "dotbare", "ls-files", "--full-name" }, tree),
 			entry_maker = opts.entry_maker,
