@@ -134,6 +134,17 @@ return {
 		"feline-nvim/feline.nvim",
 	},
 	{
+		"jackMort/ChatGPT.nvim",
+		cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
+		config = true,
+		enabled = true,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		}
+	},
+	{
 		"folke/twilight.nvim",
 		opts = {
 			--  Configuration comes here
