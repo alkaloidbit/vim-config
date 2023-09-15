@@ -16,16 +16,53 @@ return {
 		branch = "localchanges",
 	},
 	{
+		'abecodes/tabout.nvim',
+		config = function()
+			require 'tabout'.setup {
+				tabkey = '<Tab>',
+				backwards_tabkey = '<S-Tab>',
+				act_as_tab = true,
+				act_as_shift_tab = false,
+				default_tab = '<C-t>',
+				default_shift_tab = '<C-d>',
+				enable_backwards = true,
+				completion = true,
+				tabouts = {
+					{open = "'", close = "'"},
+					{open = '"', close = '"'},
+					{open = '`', close = '`'},
+					{open = '(', close = ')'},
+					{open = '[', close = ']'},
+					{open = '{', close = '}'},
+				},
+				ignore_beginning = true,
+				exclude = {},
+			}
+		end,
+		wants = {'nvim-treesitter'},
+		after = {'nvim-cmp'}
+	},
+	{
 		"Exafunction/codeium.vim",
 		event = "InsertEnter",
-		config = function ()
+		config = function()
 			vim.g.codeium_disable_bindings = 1
-      vim.keymap.set("i", "<A-m>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
-      vim.keymap.set("i", "<A-f>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
-      vim.keymap.set("i", "<A-b>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
-      vim.keymap.set("i", "<A-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
-      vim.keymap.set("i", "<A-s>", function() return vim.fn["codeium#Complete"]() end, { expr = true })
-		end
+			vim.keymap.set("i", "<A-m>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true })
+			vim.keymap.set("i", "<A-f>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true })
+			vim.keymap.set("i", "<A-b>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true })
+			vim.keymap.set("i", "<A-x>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true })
+			vim.keymap.set("i", "<A-s>", function()
+				return vim.fn["codeium#Complete"]()
+			end, { expr = true })
+		end,
 	},
 	{
 		"RRethy/vim-illuminate",
@@ -43,8 +80,14 @@ return {
 			{
 				"<localleader>f",
 				"<cmd>lua require('fr.telescope').project_files()<CR>",
-				{ noremap = true, silent = true },
+				desc = "Project Files",
 			},
+		},
+	},
+	{
+		"folke/todo-comments.nvim",
+		keys = {
+			{ "<localleader>dt", "<cmd>TodoTelescope<CR>", desc = "Todo" },
 		},
 	},
 	{
@@ -94,7 +137,7 @@ return {
 		"folke/twilight.nvim",
 		opts = {
 			--  Configuration comes here
-		}
+		},
 	},
 	{ import = "rafi.plugins.extras.ui.bufferline" },
 	{ import = "rafi.plugins.extras.ui.barbecue" },

@@ -97,6 +97,7 @@
   "rest.nvim": { "branch": "main", "commit": "22673c848768ff25517154a5aebfebc0c77d0b4f" },
   "suda.vim": { "branch": "master", "commit": "8b0fc3711760195aba104e2d190cff9af8267052" },
   "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
+  "tabout.nvim": { "branch": "master", "commit": "0d275c8d25f32457e67b5c66d6ae43f26a61bce5" },
   "tabs-vs-spaces.nvim": { "branch": "main", "commit": "eb6e2d610bb541bdf6b698d076b9ed4acf403394" },
   "telescope-thesaurus.nvim": { "branch": "master", "commit": "898a566047e0de990ddc7399fc7a3c59c3a2ca5b" },
   "telescope-zoxide": { "branch": "main", "commit": "68966349aa1b8e9ade403e18479ecf79447389a7" },
