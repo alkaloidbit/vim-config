@@ -150,8 +150,17 @@ return {
 			--  Configuration comes here
 		},
 	},
+	{
+		"utilyre/barbecue.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = true,
+	},
 	{ import = "rafi.plugins.extras.ui.bufferline" },
-	{ import = "rafi.plugins.extras.ui.barbecue" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
 	{ import = "rafi.plugins.extras.diagnostics.proselint" },
 	{ import = "rafi.plugins.extras.diagnostics.write-good" },
@@ -164,7 +173,6 @@ return {
 	{ import = "rafi.plugins.extras.lsp.lightbulb" },
 	{ import = "rafi.plugins.extras.lsp.null-ls" },
 	{ import = "rafi.plugins.extras.lsp.yaml-companion" },
-	{ import = "rafi.plugins.extras.ui.barbecue" },
 	{ import = "rafi.plugins.extras.ui.cybu" },
 	{ import = "rafi.plugins.extras.ui.deadcolumn" },
 	{ import = "rafi.plugins.extras.ui.goto-preview" },

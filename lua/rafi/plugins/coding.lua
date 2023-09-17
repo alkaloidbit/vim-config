@@ -123,7 +123,8 @@ return {
 						else
 							local symbol = icons.kinds[vim_item.kind]
 							if symbol ~= nil then
-								vim_item.kind = symbol .. " " .. vim_item.kind
+								vim_item.kind = symbol .. " " .. vim_item.kind .. " " .. entry.source.name
+
 							end
 						end
 						return vim_item
