@@ -1,5 +1,6 @@
 return {
 	{ "junegunn/fzf", build = "./install --bin" },
+	{ 'folke/tokyonight.nvim', opts = { style = 'storm' } },
 	{
 		"ibhagwan/fzf-lua",
 		-- optional for icon support
@@ -67,6 +68,7 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		opts = {
+			under_cursor = true,
 			providers = {
 				"lsp",
 				"treesitter",
