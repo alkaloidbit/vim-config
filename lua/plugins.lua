@@ -1,6 +1,17 @@
 return {
 	{ "junegunn/fzf", build = "./install --bin" },
-	{ 'folke/tokyonight.nvim', opts = { style = 'storm' } },
+	{ "folke/tokyonight.nvim", opts = { style = "storm" } },
+	{ 'folke/noice.nvim',
+		opts = { lsp = { progress = { enabled = false }}}
+	},
+	{
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+		event = "LspAttach",
+		opts = {
+			-- options
+		},
+	},
 	{
 		"ibhagwan/fzf-lua",
 		-- optional for icon support
@@ -17,35 +28,35 @@ return {
 		branch = "localchanges",
 	},
 	{
-		'abecodes/tabout.nvim',
+		"abecodes/tabout.nvim",
 		config = function()
-			require 'tabout'.setup {
-				tabkey = '<Tab>',
-				backwards_tabkey = '<S-Tab>',
+			require("tabout").setup({
+				tabkey = "<Tab>",
+				backwards_tabkey = "<S-Tab>",
 				act_as_tab = true,
 				act_as_shift_tab = false,
-				default_tab = '<C-t>',
-				default_shift_tab = '<C-d>',
+				default_tab = "<C-t>",
+				default_shift_tab = "<C-d>",
 				enable_backwards = true,
 				completion = true,
 				tabouts = {
-					{open = "'", close = "'"},
-					{open = '"', close = '"'},
-					{open = '`', close = '`'},
-					{open = '(', close = ')'},
-					{open = '[', close = ']'},
-					{open = '{', close = '}'},
+					{ open = "'", close = "'" },
+					{ open = '"', close = '"' },
+					{ open = "`", close = "`" },
+					{ open = "(", close = ")" },
+					{ open = "[", close = "]" },
+					{ open = "{", close = "}" },
 				},
 				ignore_beginning = true,
 				exclude = {},
-			}
+			})
 		end,
-		wants = {'nvim-treesitter'},
-		after = {'nvim-cmp'}
+		wants = { "nvim-treesitter" },
+		after = { "nvim-cmp" },
 	},
 	{
 		"Exafunction/codeium.vim",
-		event = "InsertEnter",
+		event = "BufEnter",
 		config = function()
 			vim.g.codeium_disable_bindings = 1
 			vim.keymap.set("i", "<A-m>", function()
@@ -144,7 +155,7 @@ return {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
-		}
+		},
 	},
 	{
 		"folke/twilight.nvim",
