@@ -1,6 +1,10 @@
 local opt = vim.opt
 
 opt.foldmethod = "indent"
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = -1
+opt.foldenable = true
 
 opt.colorcolumn=""
 
