@@ -3,6 +3,14 @@ return {
 	{ "folke/tokyonight.nvim", opts = { style = "storm" } },
 	{ "folke/noice.nvim", opts = { lsp = { progress = { enabled = false } } } },
 	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				marksman = {}
+			},
+		},
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
@@ -338,6 +346,11 @@ return {
 		},
 		config = true,
 	},
+	{
+		"glepnir/lspsaga.nvim",
+		event = "VeryLazy",
+		config
+		},
 	{ import = "rafi.plugins.extras.ui.bufferline" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
 	{ import = "rafi.plugins.extras.diagnostics.proselint" },
