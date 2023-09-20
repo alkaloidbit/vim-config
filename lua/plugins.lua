@@ -6,7 +6,7 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
-				marksman = {}
+				marksman = {},
 			},
 		},
 	},
@@ -347,10 +347,17 @@ return {
 		config = true,
 	},
 	{
-		"glepnir/lspsaga.nvim",
+		"nvimdev/lspsaga.nvim",
 		event = "VeryLazy",
-		config
+		opts = {
+			symbol_in_winbar = {
+				enable = false,
+			},
+			lightbulb = {
+				enable = false,
+			},
 		},
+	},
 	{ import = "rafi.plugins.extras.ui.bufferline" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
 	{ import = "rafi.plugins.extras.diagnostics.proselint" },
