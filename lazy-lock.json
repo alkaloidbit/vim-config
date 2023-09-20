@@ -41,6 +41,7 @@
   "guess-indent.nvim": { "branch": "main", "commit": "b8ae749fce17aa4c267eec80a6984130b94f80b2" },
   "gv.vim": { "branch": "master", "commit": "320cc8c477c5acc4fa0e52a460d87b2af54fa051" },
   "helpful.vim": { "branch": "master", "commit": "2faa4140d2866aae947d164bc60feb96636b6ed0" },
+  "hlargs.nvim": { "branch": "main", "commit": "6218a401824c5733ac50b264991b62d064e85ab2" },
   "indent-blankline.nvim": { "branch": "master", "commit": "9637670896b68805430e2f72cf5d16be5b97a22a" },
   "just-vim": { "branch": "master", "commit": "31e2cf3c0a2c7d3c9ca44199200c0969b037cfba" },
   "kanagawa.nvim": { "branch": "master", "commit": "a4e99f089110c6d00bc33f5497709200e914e763" },
