@@ -141,7 +141,7 @@ opt.number = false      -- Don't show line numbers
 opt.ruler = false       -- Disable default status ruler
 opt.list = true         -- Show hidden characters
 
-opt.showtabline = 2     -- Always show the tabs line
+opt.showtabline = 0     -- Always show the tabs line
 opt.helpheight = 0      -- Disable help window resizing
 opt.winwidth = 30       -- Minimum width for active window
 opt.winminwidth = 1     -- Minimum width for inactive windows

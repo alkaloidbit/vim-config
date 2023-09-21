@@ -201,6 +201,7 @@ return {
 	{
 		'lukas-reineke/indent-blankline.nvim',
 		event = 'FileType',
+		enabled = false,
 		keys = {
 			{ '<Leader>ue', '<cmd>IndentBlanklineToggle<CR>' },
 		},
