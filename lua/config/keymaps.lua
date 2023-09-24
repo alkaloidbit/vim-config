@@ -26,6 +26,7 @@ keymap("n", ",fo", "<cmd>Telescope lsp_document_symbols<CR>", default_opts)
 keymap("n", "<leader>qr", "<cmd>lua require('fr.telescope').reload()<CR>", {desc = "Reload Neovim Lua Modules", noremap = true, silent = true})
 keymap("n", "<localleader>df", "<cmd>lua require('fr.telescope').dotfiles()<CR>", {desc = "Dotfiles", noremap = true, silent = true})
 
+keymap("n", "<leader>gc", "<cmd>lua require('fr.term').git_commit_toggle()<CR>", {desc = "Conventional Commits", noremap = true, silent = true })
 -- alternate keymap for telescope.project_files()
 -- keymap("n", "<leader>pf", "<cmd>lua require('fr.telescope').project_files()<CR>", default_opts)
 
