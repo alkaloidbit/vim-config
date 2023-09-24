@@ -3,14 +3,6 @@ return {
 	{ "folke/tokyonight.nvim", opts = { style = "storm" } },
 	{ "folke/noice.nvim", opts = { lsp = { progress = { enabled = false } } } },
 	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				marksman = {},
-			},
-		},
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
@@ -334,28 +326,6 @@ return {
 		"folke/twilight.nvim",
 		opts = {
 			--  Configuration comes here
-		},
-	},
-	{
-		"utilyre/barbecue.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = true,
-	},
-	{
-		"nvimdev/lspsaga.nvim",
-		event = "VeryLazy",
-		opts = {
-			symbol_in_winbar = {
-				enable = false,
-			},
-			lightbulb = {
-				enable = false,
-			},
 		},
 	},
 	{
