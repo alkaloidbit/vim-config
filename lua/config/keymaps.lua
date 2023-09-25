@@ -21,7 +21,7 @@ keymap("n", "msgg", ":messages clear<CR>", default_opts)
 
 keymap("n", ",d", "<cmd>lua require('telescope.builtin').find_files({cwd=vim.fn.expand('%:p:h'), prompt_title=' Files in Current Buffer Dir '})<CR>", {desc="Files in current buf Dir", noremap = true, silent = true })
 
-keymap("n", ",fo", "<cmd>Telescope lsp_document_symbols<CR>", default_opts)
+keymap("n", "<localleader>ds", "<cmd>Telescope lsp_document_symbols<CR>", default_opts)
 
 keymap("n", "<leader>qr", "<cmd>lua require('fr.telescope').reload()<CR>", {desc = "Reload Neovim Lua Modules", noremap = true, silent = true})
 keymap("n", "<localleader>df", "<cmd>lua require('fr.telescope').dotfiles()<CR>", {desc = "Dotfiles", noremap = true, silent = true})

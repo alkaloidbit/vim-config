@@ -2,6 +2,7 @@ return {
 	{
 		"echasnovski/mini.animate",
 		event = "VeryLazy",
+		enabled = false,
 		config = function(_, _)
 			require("mini.animate").setup()
 		end,
