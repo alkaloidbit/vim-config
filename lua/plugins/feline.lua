@@ -89,6 +89,27 @@ component.empty = {
 	left_sep = "",
 	right_sep = "",
 }
+
+component.display_cwd = {
+	provider = function()
+		local result = vim.fn.getcwd()
+		local home = os.getenv("HOME")
+		if home and vim.startswith(result, home) then
+			result = "~" .. result:sub(home:len() + 1)
+		end
+		return "󰝰 " .. result
+	end,
+	hl = function()
+		return {
+			fg = "blue",
+			bg = "bg",
+			style = "bold",
+		}
+	end,
+	left_sep = " ",
+	right_sep = "",
+}
+
 component.vim_mode = {
 	provider = function()
 		return modes[vim.api.nvim_get_mode().mode]
@@ -382,6 +403,7 @@ component.scroll_bar = {
 local left = {
 	component.vim_mode,
 	component.file_info,
+	component.display_cwd,
 	-- component.file_type,
 	component.git_add,
 	component.git_delete,
