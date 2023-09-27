@@ -40,3 +40,13 @@ keymap("n", "<leader>gc", "<cmd>lua require('fr.term').git_commit_toggle()<CR>",
 keymap("n", "<leader>ch", "<cmd>lua require('fr.cht').cht()<CR>",{ desc = "Cheatsheet", noremap = true, silent = true })
 
 keymap("n", "[c", "<cmd>lua require('treesitter-context').go_to_context()<CR>", {desc = "Treesitter go_to_context", noremap = true, silent = true})
+
+
+
+vim.keymap.set("n", "i", function()
+  if #vim.fn.getline "." == 0 then
+    return [["_cc]]
+  else
+    return "i"
+  end
+end, { expr = true })
