@@ -1,4 +1,4 @@
-local icons = require "config.icons"
+local icons = require("config.icons")
 local present, feline = pcall(require, "feline")
 
 local fmt = string.format
@@ -243,53 +243,53 @@ component.lsp_status = {
 
 component.lsp = {
 	provider = function(msg)
-      msg = msg or ""
-      local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
+		msg = msg or ""
+		local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
 
-      if next(buf_clients) == nil then
-        if type(msg) == "boolean" or #msg == 0 then
-          return ""
-        end
-        return msg
-      end
+		if next(buf_clients) == nil then
+			if type(msg) == "boolean" or #msg == 0 then
+				return ""
+			end
+			return msg
+		end
 
-      local buf_ft = vim.bo.filetype
-      local buf_client_names = {}
+		local buf_ft = vim.bo.filetype
+		local buf_client_names = {}
 
-      -- add client
-      for _, client in pairs(buf_clients) do
-        if client.name ~= "null-ls" then
-          table.insert(buf_client_names, client.name)
-        end
-      end
+		-- add client
+		for _, client in pairs(buf_clients) do
+			if client.name ~= "null-ls" then
+				table.insert(buf_client_names, client.name)
+			end
+		end
 
-      -- add formatter
-      local lsp_utils = require "plugins.lsp.utils"
-      local formatters = lsp_utils.list_formatters(buf_ft)
-      vim.list_extend(buf_client_names, formatters)
+		-- add formatter
+		local lsp_utils = require("plugins.lsp.utils")
+		local formatters = lsp_utils.list_formatters(buf_ft)
+		vim.list_extend(buf_client_names, formatters)
 
-      -- add linter
-      local linters = lsp_utils.list_linters(buf_ft)
-      vim.list_extend(buf_client_names, linters)
+		-- add linter
+		local linters = lsp_utils.list_linters(buf_ft)
+		vim.list_extend(buf_client_names, linters)
 
-      -- add hover
-      local hovers = lsp_utils.list_hovers(buf_ft)
-      vim.list_extend(buf_client_names, hovers)
+		-- add hover
+		local hovers = lsp_utils.list_hovers(buf_ft)
+		vim.list_extend(buf_client_names, hovers)
 
-      -- add code action
-      local code_actions = lsp_utils.list_code_actions(buf_ft)
-      vim.list_extend(buf_client_names, code_actions)
+		-- add code action
+		local code_actions = lsp_utils.list_code_actions(buf_ft)
+		vim.list_extend(buf_client_names, code_actions)
 
-      local hash = {}
-      local client_names = {}
-      for _, v in ipairs(buf_client_names) do
-        if not hash[v] then
-          client_names[#client_names + 1] = v
-          hash[v] = true
-        end
-      end
-      table.sort(client_names)
-      return icons.ui.Code .. " " .. table.concat(client_names, ", ") .. " " .. icons.ui.Code
+		local hash = {}
+		local client_names = {}
+		for _, v in ipairs(buf_client_names) do
+			if not hash[v] then
+				client_names[#client_names + 1] = v
+				hash[v] = true
+			end
+		end
+		table.sort(client_names)
+		return icons.ui.Code .. " " .. table.concat(client_names, ", ") .. " " .. icons.ui.Code .. " "
 	end,
 	hl = function()
 		return {
@@ -298,8 +298,8 @@ component.lsp = {
 			style = "bold",
 		}
 	end,
-	left_sep = "block",
-	right_sep = "block",
+	left_sep = "",
+	right_sep = "",
 	enabled = function()
 		return vim.api.nvim_win_get_width(0) > 80
 	end,
