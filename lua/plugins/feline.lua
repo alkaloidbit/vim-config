@@ -102,7 +102,7 @@ component.display_cwd = {
 	end,
 	hl = function()
 		return {
-			fg = "blue",
+			fg = "darker_white",
 			bg = "bg",
 			style = "bold",
 		}
@@ -451,7 +451,7 @@ component.scroll_bar = {
 
 local left = {
 	component.vim_mode,
-	component.file_info,
+	-- component.file_info,
 	component.display_cwd,
 	-- component.file_type,
 	component.git_add,
