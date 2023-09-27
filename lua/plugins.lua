@@ -163,7 +163,15 @@ return {
 			require("fzf-lua").setup({})
 		end,
 	},
-
+	{
+		"nvim-tree/nvim-web-devicons",
+		dependencies = { "DaikyXendo/nvim-material-icon" },
+		config = function ()
+			require("nvim-web-devicons").setup {
+				override = require("nvim-material-icon").get_icons(),
+			}
+		end,
+	},
 	{ "rafi/awesome-vim-colorschemes", enabled = false },
 	{ "nvim-lualine/lualine.nvim", enabled = false },
 	{
