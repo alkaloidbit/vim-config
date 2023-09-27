@@ -44,6 +44,7 @@
   "gv.vim": { "branch": "master", "commit": "320cc8c477c5acc4fa0e52a460d87b2af54fa051" },
   "helpful.vim": { "branch": "master", "commit": "dfbe4cb5b95763719a2731e634958ace6e3aab5f" },
   "hlargs.nvim": { "branch": "main", "commit": "6218a401824c5733ac50b264991b62d064e85ab2" },
+  "hydra.nvim": { "branch": "master", "commit": "3ced42c0b6a6c85583ff0f221635a7f4c1ab0dd0" },
   "just-vim": { "branch": "master", "commit": "31e2cf3c0a2c7d3c9ca44199200c0969b037cfba" },
   "kanagawa.nvim": { "branch": "master", "commit": "a4e99f089110c6d00bc33f5497709200e914e763" },
   "lazy.nvim": { "branch": "main", "commit": "7ca3bdb566c3ba4492f2d22b37c2c9e26f09470f" },

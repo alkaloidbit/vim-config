@@ -102,7 +102,7 @@ component.display_cwd = {
 	end,
 	hl = function()
 		return {
-			fg = "darker_white",
+			fg = "off_blue",
 			bg = "bg",
 			style = "bold",
 		}
