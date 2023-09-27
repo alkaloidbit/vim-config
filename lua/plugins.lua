@@ -164,6 +164,12 @@ return {
 		end,
 	},
 	{
+		"folke/which-key.nvim",
+		cond = function()
+			return require("config").keymenu.which_key
+		end
+	},
+	{
 		"nvim-tree/nvim-web-devicons",
 		dependencies = { "DaikyXendo/nvim-material-icon" },
 		config = function ()
