@@ -50,8 +50,8 @@ local mode_theme = {
 }
 
 local modes = setmetatable({
-	["n"] = "N",
-	["no"] = "N",
+	["n"] = "NORMAL",
+	["no"] = "NORMAL",
 	["v"] = "V",
 	["V"] = "VL",
 	[""] = "VB",
@@ -113,12 +113,12 @@ component.display_cwd = {
 
 component.vim_mode = {
 	provider = function()
-		return modes[vim.api.nvim_get_mode().mode]
+		return " " .. modes[vim.api.nvim_get_mode().mode]
 	end,
 	hl = function()
 		return {
-			fg = "bg",
-			bg = require("feline.providers.vi_mode").get_mode_color(),
+			fg = require("feline.providers.vi_mode").get_mode_color(),
+			bg = theme.light_gray,
 			style = "bold",
 			name = "NeovimModeHLColor",
 		}
@@ -298,7 +298,7 @@ component.lsp = {
 			style = "bold",
 		}
 	end,
-	left_sep = "",
+	left_sep = " ",
 	right_sep = "",
 	enabled = function()
 		return vim.api.nvim_win_get_width(0) > 80
@@ -466,7 +466,7 @@ local right = {
 	component.diagnostic_hints,
 	-- component.search_count,
 	-- component.lsp_status,
-	component.lazy_status,
+	-- component.lazy_status,
 	component.lsp,
 	component.git_branch,
 	-- component.current_position,
