@@ -3,25 +3,22 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"stevearc/aerial.nvim",
-			 "nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
+			"nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
 		},
 		keys = {
 			{
 				"<leader>co", "<cmd>Telescope aerial<cr>", desc = "Code Outline"
 			}
 		},
-		opts = function ()
-			return require "plugins.configs.telescope"
-		end,
+		opts = {
+			defaults = {
+				prompt_prefix = " ",
+			}
+		},
 		config = function(_, opts)
-			local telescope = require "telescope"
-			telescope.setup(opts)
-
-			-- load extensions
-			for _, ext in ipairs(opts.extensions_list) do
-				telescope.load_extension(ext)
-			end
-		end
+			require('telescope').setup(opts)
+			require("telescope").load_extension("aerial")
+		end,
 	},
 
 	{
