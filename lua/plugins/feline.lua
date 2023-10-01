@@ -29,7 +29,7 @@ local theme = {
 	yellow = "#EBCB8B",
 }
 
-vim.api.nvim_set_hl(0, "StatusLine", { bg = "#2E3440", fg = "#81A1C1" })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "#434C5E", fg = "#D8DEE9" })
 
 local mode_theme = {
 	["NORMAL"] = theme.glacier,
