@@ -15,7 +15,8 @@ return {
 		},
 		opts = {
 			defaults = {
-				prompt_prefix = " ",
+				border = {},
+				-- prompt_prefix = " ",
 			},
 		},
 		config = function(_, opts)
@@ -24,10 +25,10 @@ return {
 
 			-- Highlights
 			local fg_bg = require("utils").fg_bg
-			local colors = require("plugins.colorscheme.colors")
+			local colors = require("plugins.colorscheme.nord.named_colors")
 			fg_bg("TelescopePreviewTitle", colors.black, colors.green)
 			fg_bg("TelescopePromptTitle", colors.black, colors.red)
-			fg_bg("TelescopeResultsTitle", colors.darker_black, colors.blue)
+			fg_bg("TelescopeResultsTitle", colors.black, colors.blue)
 		end,
 	},
 
