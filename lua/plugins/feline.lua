@@ -113,12 +113,12 @@ component.display_cwd = {
 
 component.vim_mode = {
 	provider = function()
-		return " " .. modes[vim.api.nvim_get_mode().mode]
+		return modes[vim.api.nvim_get_mode().mode]
 	end,
 	hl = function()
 		return {
 			fg = require("feline.providers.vi_mode").get_mode_color(),
-			bg = theme.light_gray,
+			bg = "bg",
 			style = "bold",
 			name = "NeovimModeHLColor",
 		}
