@@ -1,10 +1,12 @@
 return {
+	-- nvim-treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = function (_, opts)
 			vim.list_extend(opts.ensure_installed, {"javascript", "typescript", "tsx"})
 		end,
 	},
+	-- nvim-lspconfig
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -32,10 +34,12 @@ return {
 			}
 		},
 	},
+	-- mason-null-ls
 	{
 		"jay-babu/mason-null-ls.nvim",
 		opts = { ensure_installed = nil, automatic_installation = true, automatic_setup = false },
 	},
+	-- barbecue.nvim
 	{
 		"utilyre/barbecue.nvim",
 		event = "VeryLazy",
@@ -47,6 +51,7 @@ return {
 		enabled = false,
 		config = true,
 	},
+	-- lspsaga
 	{
 		"nvimdev/lspsaga.nvim",
 		event = "VeryLazy",
@@ -59,6 +64,7 @@ return {
 			},
 		},
 	},
+	-- dropbar
 	{
 		"Bekaboo/dropbar.nvim",
 		event = "VeryLazy",

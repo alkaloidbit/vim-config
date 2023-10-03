@@ -1,7 +1,65 @@
 return {
+	--
+	-- Disabled plugins
+	--
+
+	{ "folke/noice.nvim", opts = { lsp = { progress = { enabled = false } } } },
+	{ "rafi/awesome-vim-colorschemes", enabled = false },
+	{ "nvim-lualine/lualine.nvim", enabled = false },
+	-- codeium
+	{
+		"Exafunction/codeium.vim",
+		enabled = false,
+		event = "BufEnter",
+		config = function()
+			vim.g.codeium_disable_bindings = 1
+			vim.keymap.set("i", "<A-m>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true })
+			vim.keymap.set("i", "<A-f>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true })
+			vim.keymap.set("i", "<A-b>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true })
+			vim.keymap.set("i", "<A-x>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true })
+			vim.keymap.set("i", "<A-s>", function()
+				return vim.fn["codeium#Complete"]()
+			end, { expr = true })
+		end,
+	},
+	-- tabstrip
+	{
+		"rafi/tabstrip.nvim",
+		opts = {
+			colors = {
+				modified = { fg = "#eceff4", ctermfg = 2 },
+			},
+			icons = {
+
+				modified = "●",
+				session = "",
+			},
+		},
+		enabled = false,
+		branch = "localchanges",
+	},
+	-- nvim-navic
+	{
+		'SmiteshP/nvim-navic',
+		enabled = false,
+	},
+
+
+	--
+	-- Enabled plugins
+	--
+
 	{ "junegunn/fzf", build = "./install --bin" },
 	{ "folke/tokyonight.nvim", opts = { style = "storm" } },
-	{ "folke/noice.nvim", opts = { lsp = { progress = { enabled = false } } } },
+	-- nvim-cmp
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -131,6 +189,7 @@ return {
 			}
 		end,
 	},
+	-- tabnine
 	{
 		"codota/tabnine-nvim",
 		build = "./dl_binaries.sh",
@@ -146,6 +205,7 @@ return {
 			})
 		end,
 	},
+	-- fidget
 	{
 		"j-hui/fidget.nvim",
 		tag = "legacy",
@@ -154,6 +214,7 @@ return {
 			-- options
 		},
 	},
+	-- fzf-lua
 	{
 		"ibhagwan/fzf-lua",
 		-- optional for icon support
@@ -163,12 +224,14 @@ return {
 			require("fzf-lua").setup({})
 		end,
 	},
+	-- which-key
 	{
 		"folke/which-key.nvim",
 		cond = function()
 			return require("config").keymenu.which_key
 		end
 	},
+	-- nvim-web-devicons
 	{
 		"nvim-tree/nvim-web-devicons",
 		dependencies = { "DaikyXendo/nvim-material-icon" },
@@ -178,12 +241,12 @@ return {
 			}
 		end,
 	},
-	{ "rafi/awesome-vim-colorschemes", enabled = false },
-	{ "nvim-lualine/lualine.nvim", enabled = false },
+	-- nord
 	{
 		url = "git@github.com:alkaloidbit/nord.nvim",
 		branch = "localchanges",
 	},
+	-- tabout
 	{
 		"abecodes/tabout.nvim",
 		config = function()
@@ -211,29 +274,7 @@ return {
 		wants = { "nvim-treesitter" },
 		after = { "nvim-cmp" },
 	},
-	{
-		"Exafunction/codeium.vim",
-		enabled = false,
-		event = "BufEnter",
-		config = function()
-			vim.g.codeium_disable_bindings = 1
-			vim.keymap.set("i", "<A-m>", function()
-				return vim.fn["codeium#Accept"]()
-			end, { expr = true })
-			vim.keymap.set("i", "<A-f>", function()
-				return vim.fn["codeium#CycleCompletions"](1)
-			end, { expr = true })
-			vim.keymap.set("i", "<A-b>", function()
-				return vim.fn["codeium#CycleCompletions"](-1)
-			end, { expr = true })
-			vim.keymap.set("i", "<A-x>", function()
-				return vim.fn["codeium#Clear"]()
-			end, { expr = true })
-			vim.keymap.set("i", "<A-s>", function()
-				return vim.fn["codeium#Complete"]()
-			end, { expr = true })
-		end,
-	},
+	-- vim-illuminate
 	{
 		"RRethy/vim-illuminate",
 		opts = {
@@ -245,6 +286,7 @@ return {
 			},
 		},
 	},
+	-- hlargs.nvim
 	{
 		"m-demare/hlargs.nvim",
 		event = "VeryLazy",
@@ -266,6 +308,7 @@ return {
 			end,
 		},
 	},
+	-- telescope.nvim
 	{
 		"nvim-telescope/telescope.nvim",
 		keys = {
@@ -276,12 +319,14 @@ return {
 			},
 		},
 	},
+	-- todo-comments
 	{
 		"folke/todo-comments.nvim",
 		keys = {
 			{ "<localleader>dt", "<cmd>TodoTelescope<CR>", desc = "Todo" },
 		},
 	},
+	-- nvim-neo-tree
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		opts = {
@@ -307,41 +352,29 @@ return {
 			},
 		},
 	},
-	{
-		"rafi/tabstrip.nvim",
-		opts = {
-			colors = {
-				modified = { fg = "#eceff4", ctermfg = 2 },
-			},
-			icons = {
-
-				modified = "●",
-				session = "",
-			},
-		},
-		enabled = false,
-		branch = "localchanges",
-	},
+	-- feline
 	{
 		"feline-nvim/feline.nvim",
 	},
+	-- chatGPT
 	{
 		"jackMort/ChatGPT.nvim",
 		cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
 		config = true,
-		enabled = true,
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
 	},
+	-- twilight
 	{
 		"folke/twilight.nvim",
 		opts = {
 			--  Configuration comes here
 		},
 	},
+	-- markdown-preview
 	{
 		"iamcco/markdown-preview.nvim",
 		event = "VeryLazy",
