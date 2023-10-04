@@ -229,7 +229,7 @@ return {
 		"folke/which-key.nvim",
 		cond = function()
 			return require("config").keymenu.which_key
-		end
+		end,
 	},
 	-- nvim-web-devicons
 	{
@@ -329,6 +329,22 @@ return {
 	-- nvim-neo-tree
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			{
+				"s1n7ax/nvim-window-picker",
+				opts = {
+					filter_rules = {
+						autoselect_one = true,
+						bo = {
+							filetype = { 'notify', 'noice', 'neo-tree' },
+							buftype = { 'terminal', 'quickfix' },
+						}
+					}
+				}
+			},
+		},
 		opts = {
 
 			default_component_configs = {
@@ -378,10 +394,10 @@ return {
 	{
 		"iamcco/markdown-preview.nvim",
 		event = "VeryLazy",
-		config = function ()
+		config = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 			vim.g.mkdp_auto_start = 1
-		end
+		end,
 	},
 	{ import = "rafi.plugins.extras.ui.bufferline" },
 	{ import = "rafi.plugins.extras.coding.emmet" },
