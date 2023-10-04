@@ -368,10 +368,6 @@ return {
 			},
 		},
 	},
-	-- feline
-	{
-		"feline-nvim/feline.nvim",
-	},
 	-- chatGPT
 	{
 		"jackMort/ChatGPT.nvim",
