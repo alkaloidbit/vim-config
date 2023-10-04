@@ -16,7 +16,7 @@ return {
 		opts = {
 			defaults = {
 				border = {},
-				-- prompt_prefix = " ",
+				prompt_prefix = '  ', -- ❯  
 			},
 		},
 		config = function(_, opts)
