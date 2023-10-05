@@ -7,6 +7,7 @@ return {
 	-----------------------------------------------------------
 	{
 		'feline-nvim/feline.nvim',
+		enabled = false,
 		event = 'VeryLazy',
 		opts = function()
 			local icons = require("config.icons")

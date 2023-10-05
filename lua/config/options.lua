@@ -7,6 +7,8 @@ opt.foldcolumn = "1"
 opt.foldenable = true
 -- opt.foldmethod = "indent"
 
+opt.laststatus = 3 -- global statusline
+
 opt.colorcolumn=""
 
 vim.g.nord_contrast = false

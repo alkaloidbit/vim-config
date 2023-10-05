@@ -5,7 +5,7 @@ return {
 
 	{ "folke/noice.nvim", opts = { lsp = { progress = { enabled = false } } } },
 	{ "rafi/awesome-vim-colorschemes", enabled = false },
-	{ "nvim-lualine/lualine.nvim", enabled = false },
+	-- { "nvim-lualine/lualine.nvim", enabled = false },
 	-- codeium
 	{
 		"Exafunction/codeium.vim",
