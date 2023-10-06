@@ -10,12 +10,14 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
+			"meuter/lualine-so-fancy.nvim",
 		},
 		event = "VeryLazy",
 		init = function()
 			vim.g.qf_disable_statusline = true
 		end,
 		opts = function()
+
 
       -- Color table for highlights
       -- stylua: ignore
@@ -30,7 +32,7 @@ return {
         violet   = '#B48EAD',
         magenta  = '#B48EAD',
         blue     = '#5E81AC',
-        red      = '#BF616a',
+        red      = '#BF616A',
       }
 
 			local conditions = {
@@ -103,7 +105,33 @@ return {
 			ins_left({
 				-- mode component
 				function()
-					return ""
+				local modes = setmetatable({
+					["n"] = "NORMAL",
+					["no"] = "NORMAL",
+					["v"] = "VISUAL",
+					["V"] = "V-LINE",
+					[""] = "V-BLOCK",
+					["s"] = "SELECT",
+					["S"] = "S-LINE",
+					[""] = "S-BLOCK",
+					["i"] = "INSERT",
+					["ic"] = "I",
+					["R"] = "REPLACE",
+					["Rv"] = "VR",
+					["c"] = "COMMAND",
+					["cv"] = "EX",
+					["ce"] = "X",
+					["r"] = "P",
+					["rm"] = "M",
+					["r?"] = "C",
+					["!"] = "SH",
+					["t"] = "TERM",
+				}, {
+					__index = function()
+						return "-"
+					end,
+				})
+					return modes[vim.fn.mode()]
 				end,
 				color = function()
 					-- auto change color according to neovims mode

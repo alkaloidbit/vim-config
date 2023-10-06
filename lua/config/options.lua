@@ -22,3 +22,6 @@ vim.g.nord_bold = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+config = require("core.utils").load_config()
+
+vim.opt.statusline = "%!v:lua.require('plugins.ui.statusline." .. config.ui.statusline.theme .. "').run()"
