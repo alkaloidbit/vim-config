@@ -11,3 +11,4 @@
 /after/plugin/keymaps.lua
 /config/local.vim
 /config/tabline.vim
+/highlight*
